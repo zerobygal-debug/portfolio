@@ -35,7 +35,6 @@ nav.scrolled { border-color: var(--mid); }
 .nav-cta {
   background: var(--lilac) !important; color: #fff !important;
   padding: 9px 22px !important; border-radius: 100px !important; font-weight: 500 !important;
-  outline: 1px solid var(--black) !important;
   transition: background .2s, transform .15s !important;
 }
 .nav-cta:hover { background: var(--lilac-dark) !important; transform: translateY(-2px) !important; }
@@ -54,7 +53,6 @@ nav.scrolled { border-color: var(--mid); }
   padding: 13px 28px; border-radius: 100px;
   font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; font-weight: 500;
   letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
-  outline: 1px solid var(--black);
   transition: background .2s, transform .15s;
   display: inline-block;
 }
@@ -64,7 +62,7 @@ nav.scrolled { border-color: var(--mid); }
   padding: 13px 28px; border-radius: 100px;
   font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; font-weight: 500;
   letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
-  outline: 1px solid var(--black); border: none;
+  border: 1px solid var(--mid);
   transition: background .2s, transform .15s;
   display: inline-flex; align-items: center; gap: 6px; cursor: none;
 }
@@ -80,29 +78,19 @@ nav.scrolled { border-color: var(--mid); }
 .filter-btn:hover, .filter-btn.active { border-color: var(--black); color: var(--black); background: rgba(17,17,16,.05); }
 
 /* Grid */
-.project-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; background: var(--mid); grid-auto-flow: dense; }
-.project-card { position: relative; overflow: hidden; background: var(--bg2); cursor: none; }
-.project-card.large  { grid-column: span 7; aspect-ratio: 16/10; }
-.project-card.medium { grid-column: span 5; aspect-ratio: 4/5; }
-.project-card.wide   { grid-column: span 5; aspect-ratio: 5/4; }
-.project-card.tall   { grid-column: span 7; aspect-ratio: 7/6; }
-.project-card.full   { grid-column: span 12; aspect-ratio: 21/7; }
-.project-card.half   { grid-column: span 6; aspect-ratio: 4/3; }
+.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; background: var(--bg); }
+.project-card { position: relative; overflow: hidden; background: var(--bg2); cursor: none; aspect-ratio: 4/3; }
 .project-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.25,.46,.45,.94); }
 .project-card img.img-error { display: none; }
 .project-card.img-failed { display: none !important; }
-.project-card { background: var(--bg2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23ede9e0'/%3E%3C/svg%3E") center/cover; }
 .project-card:hover img { transform: scale(1.04); }
 .project-card-overlay { position: absolute; inset: 0; background: rgba(17,17,16,.82); opacity: 0; transition: opacity .3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; gap: 8px; }
 .project-card:hover .project-card-overlay { opacity: 1; }
 .project-client { font-family: 'Figtree', sans-serif; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,242,236,.45); }
-.project-name { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(18px,2vw,24px); font-weight: 400; color: #f5f2ec; line-height: 1.1; }
+.project-name { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(16px,1.6vw,22px); font-weight: 400; color: #f5f2ec; line-height: 1.1; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
 .project-tag-pill { background: rgba(245,242,236,.12); border: 1px solid rgba(245,242,236,.2); color: rgba(245,242,236,.8); font-family: 'Figtree', sans-serif; font-size: 10px; padding: 3px 9px; border-radius: 100px; }
-.open-hint { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border: 1px solid rgba(245,242,236,.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; color: rgba(245,242,236,.8); opacity: 0; transition: opacity .3s; }
-.project-card:hover .open-hint { opacity: 1; }
-
-.project-section-divider { grid-column: span 12; background: var(--bg); padding: 36px 0 18px; display: flex; align-items: center; gap: 16px; }
+.project-section-divider { grid-column: 1 / -1; background: var(--bg); padding: 36px 0 18px; display: flex; align-items: center; gap: 16px; }
 .project-section-divider h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .25em; color: var(--muted); white-space: nowrap; text-transform: uppercase; }
 .divider-line { flex: 1; height: 1px; background: var(--mid); }
 
@@ -117,7 +105,7 @@ nav.scrolled { border-color: var(--mid); }
 .lb-body { display: flex; flex: 1; overflow: hidden; min-height: 0; }
 .lb-viewer { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; }
 .lb-main-img-wrap { flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: #080808; min-height: 0; }
-.lb-main-img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; cursor: zoom-in; transition: transform .3s; }
+.lb-main-img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; cursor: zoom-in; transition: transform .3s, opacity .15s; }
 .lb-main-img-wrap img.zoomed { transform: scale(2.2); cursor: zoom-out; }
 .lb-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(245,242,236,.1); border: 1px solid rgba(245,242,236,.2); color: #f5f2ec; width: 44px; height: 44px; border-radius: 50%; font-size: 22px; cursor: none; display: flex; align-items: center; justify-content: center; transition: background .2s; z-index: 2; line-height: 1; }
 .lb-nav-btn:hover { background: rgba(245,242,236,.22); }
@@ -182,11 +170,11 @@ nav.scrolled { border-color: var(--mid); }
   padding: 14px 32px; border-radius: 100px; transition: background .2s, transform .15s, color .2s;
   min-width: 260px; justify-content: center;
 }
-.contact-btn.primary { background: var(--lilac); color: #fff; outline: 1px solid var(--black); }
+.contact-btn.primary { background: var(--lilac); color: #fff; }
 .contact-btn.primary:hover { background: var(--lilac-dark); transform: translateY(-2px); }
-.contact-btn.secondary { background: var(--bg); color: var(--black); outline: 1px solid var(--black); }
+.contact-btn.secondary { background: var(--bg); color: var(--black); border: 1px solid var(--mid); }
 .contact-btn.secondary:hover { background: var(--black); color: var(--bg); transform: translateY(-2px); }
-.contact-btn.outline { background: var(--bg); color: var(--black); outline: 1px solid var(--black); }
+.contact-btn.outline { background: var(--bg); color: var(--black); }
 .contact-btn.outline:hover { background: var(--black); color: var(--bg); transform: translateY(-2px); }
 
 /* Reveal */
@@ -201,7 +189,7 @@ nav.scrolled { border-color: var(--mid); }
   .cursor, .cursor-ring { display: none; }
   nav { padding: 16px 20px; }
   .nav-links { gap: 16px; }
-  .nav-links li:not(:last-child) a { display: none; }
+  .nav-links a { font-size: 10px; letter-spacing: .04em; }
 
   .hero { padding: 110px 24px 60px; min-height: auto; }
   .hero-title { font-size: clamp(48px, 13vw, 72px); }
@@ -210,12 +198,9 @@ nav.scrolled { border-color: var(--mid); }
   .work-header { margin-bottom: 28px; padding-bottom: 20px; }
   .section-title { font-size: 28px; }
 
-  /* Mobile grid: all cards full-width, no gaps causing overlap */
-  .project-grid { grid-template-columns: 1fr; gap: 2px; background: var(--mid); }
-  .project-section-divider { grid-column: span 1; padding: 24px 0 12px; }
-  .project-card { grid-column: span 1 !important; }
-  .project-card.large, .project-card.medium, .project-card.wide,
-  .project-card.tall, .project-card.full, .project-card.half { aspect-ratio: 4/3; }
+  /* Mobile grid: single column */
+  .project-grid { grid-template-columns: 1fr; gap: 2px; }
+  .project-section-divider { grid-column: 1 / -1; padding: 24px 0 12px; }
 
   /* Mobile lightbox */
   .lb-body { flex-direction: column; }
@@ -277,7 +262,7 @@ nav.scrolled { border-color: var(--mid); }
 <nav id="nav">
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#about">CV</a></li>
     <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
   </ul>
 </nav>
@@ -321,8 +306,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Playstudios</div><div class="project-name">Women in Gaming</div>
         <div class="project-tags"><span class="project-tag-pill">Concept</span><span class="project-tag-pill">Event Branding</span><span class="project-tag-pill">Motion Design</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- PS Lunch Branding: Lunch_00,01,02,03,04,05,06,07,08,09 -->
     <div class="project-card medium reveal reveal-delay-1" data-category="playstudios"
@@ -334,8 +318,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Playstudios</div><div class="project-name">PS Lunch Branding</div>
         <div class="project-tags"><span class="project-tag-pill">Concept</span><span class="project-tag-pill">Branding</span><span class="project-tag-pill">Print Design</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- Games2Awards: G2A_01–06 -->
     <div class="project-card wide reveal" data-category="playstudios"
@@ -347,8 +330,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Playstudios</div><div class="project-name">Games2Awards Offsite</div>
         <div class="project-tags"><span class="project-tag-pill">Event Identity</span><span class="project-tag-pill">Mockup Design</span><span class="project-tag-pill">Signage</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- PJ Event: 01,02,03,05,07,08,09,10 -->
     <div class="project-card tall reveal reveal-delay-1" data-category="playstudios"
@@ -360,8 +342,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Playstudios</div><div class="project-name">Playstudios PJ Event</div>
         <div class="project-tags"><span class="project-tag-pill">Concept</span><span class="project-tag-pill">Event Branding</span><span class="project-tag-pill">Image Making</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- Market Event: Market_01–09 -->
     <div class="project-card half reveal" data-category="playstudios"
@@ -373,8 +354,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Playstudios</div><div class="project-name">PS Market Event</div>
         <div class="project-tags"><span class="project-tag-pill">Event Branding</span><span class="project-tag-pill">Print Design</span><span class="project-tag-pill">Mockup Design</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- Summer Party (Coachella): 01–08 -->
     <div class="project-card half reveal reveal-delay-1" data-category="playstudios"
@@ -386,8 +366,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Playstudios</div><div class="project-name">PS Summer Party</div>
         <div class="project-tags"><span class="project-tag-pill">Concept</span><span class="project-tag-pill">Event Branding</span><span class="project-tag-pill">Image Making</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- Pride: 01–08 -->
     <div class="project-card half reveal" data-category="playstudios"
@@ -399,8 +378,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Playstudios</div><div class="project-name">PS Pride Event</div>
         <div class="project-tags"><span class="project-tag-pill">Event Branding</span><span class="project-tag-pill">Concept</span><span class="project-tag-pill">Asset Production</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- Chill and Chat: 01–08 -->
     <div class="project-card half reveal reveal-delay-1" data-category="playstudios"
@@ -412,8 +390,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Playstudios</div><div class="project-name">Chill &amp; Chat Event</div>
         <div class="project-tags"><span class="project-tag-pill">Event Branding</span><span class="project-tag-pill">Concept</span><span class="project-tag-pill">Print Design</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- AI Hackathon: 01–08 -->
     <div class="project-card full reveal" data-category="playstudios"
@@ -425,8 +402,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Playstudios</div><div class="project-name">AI Hackathon</div>
         <div class="project-tags"><span class="project-tag-pill">Concept</span><span class="project-tag-pill">Campaign Design</span><span class="project-tag-pill">Image Making</span><span class="project-tag-pill">AI Production</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <div class="project-section-divider"><h3>Superplay</h3><div class="divider-line"></div></div>
 
@@ -440,8 +416,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Superplay</div><div class="project-name">Superplay Branding</div>
         <div class="project-tags"><span class="project-tag-pill">Visual Identity</span><span class="project-tag-pill">Design System</span><span class="project-tag-pill">Brand Guidelines</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- Superplay Summer Party: 01–12 -->
     <div class="project-card large reveal reveal-delay-1" data-category="superplay"
@@ -453,8 +428,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Superplay</div><div class="project-name">Summer Party</div>
         <div class="project-tags"><span class="project-tag-pill">Event Branding</span><span class="project-tag-pill">Concept</span><span class="project-tag-pill">Mockup Design</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- Shavuot: 01–09 -->
     <div class="project-card half reveal" data-category="superplay"
@@ -466,8 +440,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Superplay</div><div class="project-name">Shavuot Event</div>
         <div class="project-tags"><span class="project-tag-pill">Event Branding</span><span class="project-tag-pill">Concept</span><span class="project-tag-pill">Image Making</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- Print Productions: 01–09 -->
     <div class="project-card half reveal reveal-delay-1" data-category="superplay"
@@ -479,8 +452,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Superplay</div><div class="project-name">Print Productions</div>
         <div class="project-tags"><span class="project-tag-pill">Print Design</span><span class="project-tag-pill">Asset Production</span><span class="project-tag-pill">Mockup Design</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
     <!-- ADDITIONAL -->
     <div class="project-section-divider"><h3>Additional</h3><div class="divider-line"></div></div>
@@ -495,8 +467,7 @@ nav.scrolled { border-color: var(--mid); }
       <div class="project-card-overlay">
         <div class="project-client">Givingtech</div><div class="project-name">Givingtech Branding</div>
         <div class="project-tags"><span class="project-tag-pill">Visual Identity</span><span class="project-tag-pill">Brand System</span><span class="project-tag-pill">Print Design</span><span class="project-tag-pill">Digital Assets</span></div>
-      </div><div class="open-hint">↗</div>
-    </div>
+      </div>    </div>
 
   </div>
 </section>
@@ -588,9 +559,8 @@ nav.scrolled { border-color: var(--mid); }
     <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;">03 · Contact</div>
     <h2 class="contact-title">Let's talk.</h2>
     <div class="contact-buttons">
-      <a href="mailto:galreisch@gmail.com" class="contact-btn primary">✉ galreisch@gmail.com</a>
-      <a href="tel:+972542392449" class="contact-btn secondary">📞 054-239-2449</a>
-      <a href="https://linkedin.com/in/gal-reisch-332514373/" target="_blank" rel="noopener" class="contact-btn outline">↗ LinkedIn</a>
+      <a href="mailto:galreisch@gmail.com" class="contact-btn primary">galreisch@gmail.com</a>
+      <a href="tel:+972542392449" class="contact-btn secondary">054-239-2449</a>
     </div>
   </div>
 </section>
@@ -648,15 +618,37 @@ const lbThumbs=document.getElementById('lb-thumbs');
 const lbCounter=document.getElementById('lb-counter');
 let lbImages=[],lbIndex=0;
 
+// Image cache — preloads and holds Image objects so browser doesn't re-fetch
+const imgCache={};
+function driveUrl(id){return 'https://drive.google.com/thumbnail?id='+id+'&sz=w1600';}
+function preload(id){
+  if(!id||imgCache[id])return;
+  const img=new Image();
+  img.src=driveUrl(id);
+  imgCache[id]=img;
+}
+
 function setLbImage(i){
   lbIndex=i;
   lbMainImg.classList.remove('zoomed');
-  lbMainImg.src='https://drive.google.com/thumbnail?id='+lbImages[i]+'&sz=w1600';
+  const id=lbImages[i];
+
+  // If already cached, switch instantly
+  if(imgCache[id]&&imgCache[id].complete&&imgCache[id].naturalWidth>0){
+    lbMainImg.src=imgCache[id].src;
+  } else {
+    lbMainImg.src=driveUrl(id);
+  }
 
   lbCounter.textContent=(i+1)+' / '+lbImages.length;
   const thumbs=document.querySelectorAll('#lb-thumbs img');
   thumbs.forEach((t,ti)=>t.classList.toggle('active',ti===i));
   thumbs[i]?.scrollIntoView({inline:'center',behavior:'smooth'});
+
+  // Preload next 2 and previous 1 immediately
+  preload(lbImages[(i+1)%lbImages.length]);
+  preload(lbImages[(i+2)%lbImages.length]);
+  preload(lbImages[(i-1+lbImages.length)%lbImages.length]);
 }
 
 function openLightbox(card){
@@ -669,9 +661,11 @@ function openLightbox(card){
   document.getElementById('lb-tags').innerHTML=tags.map(t=>`<span class="lb-tag-pill">${t}</span>`).join('');
   lbThumbs.innerHTML=lbImages.map((id,i)=>`<img src="https://drive.google.com/thumbnail?id=${id}&sz=w400" loading="lazy">`).join('');
   document.querySelectorAll('#lb-thumbs img').forEach((t,i)=>{
-    t.onerror = function(){ t.style.display='none'; };
+    t.onerror=function(){t.style.display='none';};
     t.addEventListener('click',()=>setLbImage(i));
   });
+  // Preload all images in background as soon as lightbox opens
+  lbImages.forEach(id=>preload(id));
   setLbImage(0);
   lb.classList.add('open');
   document.body.style.overflow='hidden';
@@ -689,11 +683,20 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft')setLbImage((lbIndex-1+lbImages.length)%lbImages.length);
 });
 // Swipe support
-let touchStartX=0;
-document.getElementById('lb-main-wrap').addEventListener('touchstart',e=>touchStartX=e.touches[0].clientX,{passive:true});
+let touchStartX=0,touchStartY=0,swiping=false;
+document.getElementById('lb-main-wrap').addEventListener('touchstart',e=>{
+  touchStartX=e.touches[0].clientX;
+  touchStartY=e.touches[0].clientY;
+  swiping=true;
+},{passive:true});
 document.getElementById('lb-main-wrap').addEventListener('touchend',e=>{
+  if(!swiping)return;
+  swiping=false;
   const dx=e.changedTouches[0].clientX-touchStartX;
-  if(Math.abs(dx)>50){dx<0?setLbImage((lbIndex+1)%lbImages.length):setLbImage((lbIndex-1+lbImages.length)%lbImages.length);}
+  const dy=e.changedTouches[0].clientY-touchStartY;
+  if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40){
+    dx<0?setLbImage((lbIndex+1)%lbImages.length):setLbImage((lbIndex-1+lbImages.length)%lbImages.length);
+  }
 },{passive:true});
 </script>
 </body>
